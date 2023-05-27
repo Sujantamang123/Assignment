@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Calculator</title>
+</head>
+<body>
+  <input type="number" id="num1">
+  <input type="number" id="num2">
+  <select id="operation">
+    <option value="addition">Addition</option>
+    <option value="subtraction">Subtraction</option>
+    <option value="multiplication">Multiplication</option>
+    <option value="division">Division</option>
+  </select>
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      var num1 = parseInt(document.getElementById("num1").value);
+      var num2 = parseInt(document.getElementById("num2").value);
+      var operation = document.getElementById("operation").value;
+      var result;
+
+      switch (operation) {
+        case "addition":
+          result = num1 + num2;
+          break;
+        case "subtraction":
+          result = num1 - num2;
+          break;
+        case "multiplication":
+          result = num1 * num2;
+          break;
+        case "division":
+          result = num1 / num2;
+          break;
+        default:
+          result = "Invalid operation";
+      }
+
+      document.getElementById("result").textContent = "Result: " + result;
+    }
+  </script>
+</body>
+</html>
