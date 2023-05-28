@@ -1,0 +1,27 @@
+var randomNumber = Math.floor(Math.random() * 100) + 1;
+var attempts = 0;
+
+function checkGuess() {
+  var guessInput = document.getElementById("guessInput");
+  var guess = parseInt(guessInput.value);
+
+  if (isNaN(guess) || guess < 1 || guess > 100) {
+    document.getElementById("feedback").textContent = "Please enter a valid number between 1 and 100.";
+    return;
+  }
+
+  attempts++;
+
+  if (guess === randomNumber) {
+    document.getElementById("feedback").textContent = "Congratulations! You guessed the correct number!";
+    document.getElementById("attempts").textContent = "Number of attempts: " + attempts;
+    guessInput.disabled = true;
+  } else if (guess < randomNumber) {
+    document.getElementById("feedback").textContent = "Too low! Try again.";
+  } else {
+    document.getElementById("feedback").textContent = "Too high! Try again.";
+  }
+
+  guessInput.value = "";
+  guessInput.focus();
+}
